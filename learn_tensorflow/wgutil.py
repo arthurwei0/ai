@@ -24,4 +24,15 @@ def plot_acc(history):
 	plt.legend()
 	plt.show()
 
+def plot(history, metric):
+	train_metric = history.history[metric]
+	val_metric = history.history['val_' + metric]
+	epochs = range(1, len(history.epoch)+1)
+	plt.plot(epochs, train_metric, 'bo', label='Training ' + metric)
+	plt.plot(epochs, val_metric, 'b', label='Validation ' + metric)
+	plt.title('Training and Validation ' + metric)
+	plt.xlabel('Epochs')
+	plt.ylabel(metric)
+	plt.legend()
+	plt.show()
 
